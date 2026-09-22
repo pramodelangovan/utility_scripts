@@ -1,0 +1,15 @@
+
+# Define the array of cow files
+expressions=("www.cow" "bud-frogs.cow" "bunny.cow" "chameleon.cow" "cheese.cow" "cower.cow" "daemon.cow" "default.cow" "dragon-and-cow.cow" "dragon.cow" "vader.cow"  "elephant.cow" "eyes.cow" "flaming-sheep.cow" "ghostbusters.cow" "hellokitty.cow" "kitty.cow" "koala.cow" "kosh.cow" "llama.cow" "luke-koala.cow" "milk.cow" "moofasa.cow" "moose.cow" "sheep.cow" "skeleton.cow" "stegosaurus.cow" "stimpy.cow" "three-eyes.cow" "turkey.cow" "turtle.cow" "tux.cow")
+
+# Seed RANDOM using current time
+RANDOM=$(( $RANDOM ^ $(date +%s) ))
+
+# Get a random index (Zsh arrays are 1-based)
+index=$((RANDOM % ${#expressions[@]} + 1))
+
+# Select a random cow file
+cow=${expressions[$index]}
+
+# Run the command
+fortune bofh-excuses | cowsay -f "$cow"
